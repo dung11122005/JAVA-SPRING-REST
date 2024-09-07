@@ -2,10 +2,10 @@ package vn.hoidanit.jobhunter.controller;
 
 import java.util.List;
 
-import org.apache.el.stream.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import vn.hoidanit.jobhunter.domain.User;
 import vn.hoidanit.jobhunter.service.UserService;
+import vn.hoidanit.jobhunter.service.error.IdInvalidException;
+
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
@@ -37,9 +39,14 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") long id) {
+    public ResponseEntity<String> deleteUser(@PathVariable("id") long id) throws IdInvalidException {
+        if (id >= 1500) {
+            throw new IdInvalidException("Id khong lon hon 1501");
+        }
+
         this.userService.handleDeleteUser(id);
-        return ResponseEntity.status(HttpStatus.OK).body("ericUser");
+        return ResponseEntity.ok("ericUser");
+        // return ResponseEntity.status(HttpStatus.OK).body("ericUser");
     }
 
     @GetMapping("/users/{id}")
