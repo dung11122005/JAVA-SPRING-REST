@@ -18,7 +18,6 @@ import vn.hoidanit.jobhunter.domain.RestResponse;
 @RestControllerAdvice
 public class GlobalException {
     @ExceptionHandler(value = {
-            Exception.class,
             UsernameNotFoundException.class,
             BadCredentialsException.class
     })
