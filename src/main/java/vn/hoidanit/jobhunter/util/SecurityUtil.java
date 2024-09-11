@@ -23,13 +23,13 @@ public class SecurityUtil {
 
     public static final MacAlgorithm JWT_ALGORITHM = MacAlgorithm.HS512;
 
-    @Value("${hoidanit.jwt.base64-secret}")
+    @Value("${hoidanit.jwt.base64-secret}") // https://stackoverflow.com/questions/30528255/how-to-access-a-value-defined-in-the-application-properties-file-in-spring-boot/30528430#30528430
     private String jwtKey;
 
     @Value("${hoidanit.jwt.token-validity-in-seconds}")
     private long jwtExpiration;
 
-    public String createToken(Authentication authentication) {
+    public String createToken(Authentication authentication) {// https://gitlab.com/public-starter-projects1/000-java/02-java-spring-restful/02-java-jhipster-with-filter/-/blob/master/src/main/java/com/mycompany/myapp/web/rest/AuthenticateController.java?ref_type=heads#L81
         Instant now = Instant.now();
         Instant validity = now.plus(this.jwtExpiration, ChronoUnit.SECONDS);
 

@@ -48,7 +48,7 @@ public class SecurityConfiguration {
                         authz -> authz
                                 .requestMatchers("/", "/login").permitAll()
                                 .anyRequest().authenticated())
-                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults())
+                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults())// https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html#oauth2resourceserver-jwt-sansboot
                         .authenticationEntryPoint(customAuthenticationEntryPoint))
                 .exceptionHandling(
                         exceptions -> exceptions
@@ -72,7 +72,7 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public JwtDecoder jwtDecoder() {
+    public JwtDecoder jwtDecoder() {// giải mã các JWT
         NimbusJwtDecoder jwtDecoder = NimbusJwtDecoder.withSecretKey(
                 getSecretKey()).macAlgorithm(SecurityUtil.JWT_ALGORITHM).build();
         return token -> {
@@ -83,16 +83,16 @@ public class SecurityConfiguration {
                 throw e;
             }
         };
-    }
+    }// https://stackoverflow.com/questions/72656062/how-to-implement-a-shared-secret-version-of-nimbusjwtdecoder-and-nimbusjwtencode
 
     @Bean
-    public JwtEncoder jwtEncoder() {
+    public JwtEncoder jwtEncoder() {// trình mã hóa JWT
         return new NimbusJwtEncoder(new ImmutableSecret<>(getSecretKey()));
-    }
+    }// https://stackoverflow.com/questions/72656062/how-to-implement-a-shared-secret-version-of-nimbusjwtdecoder-and-nimbusjwtencode
 
-    private SecretKey getSecretKey() {
+    private SecretKey getSecretKey() {// Tạo key
         byte[] keyBytes = Base64.from(jwtKey).decode();
         return new SecretKeySpec(keyBytes, 0, keyBytes.length,
                 SecurityUtil.JWT_ALGORITHM.getName());
-    }
+    }// https://stackoverflow.com/questions/72656062/how-to-implement-a-shared-secret-version-of-nimbusjwtdecoder-and-nimbusjwtencode
 }

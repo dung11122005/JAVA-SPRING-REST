@@ -17,11 +17,11 @@ import vn.hoidanit.jobhunter.domain.RestResponse;
 
 @RestControllerAdvice
 public class GlobalException {
-    @ExceptionHandler(value = {
+    @ExceptionHandler(value = { // https://springframework.guru/exception-handling-in-spring-boot-rest-api/#:~:text=Approach%202%3A%20Spring%20%40ExceptionHandler%20Annotation
             UsernameNotFoundException.class,
             BadCredentialsException.class
     })
-    public ResponseEntity<RestResponse<Object>> handleIdException(Exception ex) {
+    public ResponseEntity<RestResponse<Object>> handleIdException(Exception ex) {// https://www.baeldung.com/spring-security-exceptionhandler#2-configuring-exceptionhandler
         RestResponse<Object> res = new RestResponse<Object>();
         res.setStatusCode(HttpStatus.BAD_REQUEST.value());
         res.setError(ex.getMessage());
@@ -29,7 +29,7 @@ public class GlobalException {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(MethodArgumentNotValidException.class) // https://www.baeldung.com/global-error-handler-in-a-spring-rest-api#1-handling-the-exceptions
     public ResponseEntity<RestResponse<Object>> validationError(MethodArgumentNotValidException ex) {
         BindingResult result = ex.getBindingResult();
         final List<FieldError> fieldErrors = result.getFieldErrors();
