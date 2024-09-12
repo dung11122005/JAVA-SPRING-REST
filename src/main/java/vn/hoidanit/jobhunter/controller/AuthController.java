@@ -25,7 +25,8 @@ public class AuthController {
         this.securityUtil = securityUtil;
     }
 
-    @PostMapping("/login")
+    // how do i customize default error message from spring valid validation
+    @PostMapping("/login") // https://gist.github.com/slmanju/eb0a38b38bffd7e341dd9ee94f92a994#file-logincontroller-java
     public ResponseEntity<ResLoginDTO> login(@Valid @RequestBody LoginDTO loginDto) {// https://stackoverflow.com/q/33663801
         // Nạp input gồm username/password vào Security
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(

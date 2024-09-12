@@ -19,7 +19,7 @@ public class FormatRestResponse implements ResponseBodyAdvice<Object> {
         return true;
     }
 
-    @Override
+    @Override // how to handle code of response
     public Object beforeBodyWrite(// https://stackoverflow.com/questions/51540066/how-to-handle-code-of-response/51551663#51551663
             Object body,
             MethodParameter returnType,

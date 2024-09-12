@@ -71,6 +71,8 @@ public class SecurityConfiguration {
         return jwtAuthenticationConverter;
     }
 
+    // how to implement a shared secret version of nimbusjwtdecoder and
+    // nimbusjwtencode
     @Bean
     public JwtDecoder jwtDecoder() {// giải mã các JWT
         NimbusJwtDecoder jwtDecoder = NimbusJwtDecoder.withSecretKey(

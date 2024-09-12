@@ -17,6 +17,7 @@ public class UserDetailsCustom implements UserDetailsService {
         this.userService = userService;
     }
 
+    // username parameter is empty in loaduserbyusernamestring username spring boot
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {// https://stackoverflow.com/q/43978548
         // TODO Auto-generated method stub

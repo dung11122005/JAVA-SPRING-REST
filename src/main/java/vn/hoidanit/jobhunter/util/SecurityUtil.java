@@ -23,6 +23,8 @@ public class SecurityUtil {
 
     public static final MacAlgorithm JWT_ALGORITHM = MacAlgorithm.HS512;
 
+    // how to access a value defined in the application properties file in
+    // spring_boot
     @Value("${hoidanit.jwt.base64-secret}") // https://stackoverflow.com/questions/30528255/how-to-access-a-value-defined-in-the-application-properties-file-in-spring-boot/30528430#30528430
     private String jwtKey;
 

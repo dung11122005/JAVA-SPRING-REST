@@ -17,6 +17,7 @@ import vn.hoidanit.jobhunter.domain.RestResponse;
 
 @RestControllerAdvice
 public class GlobalException {
+    // exception handling in spring boot rest api
     @ExceptionHandler(value = { // https://springframework.guru/exception-handling-in-spring-boot-rest-api/#:~:text=Approach%202%3A%20Spring%20%40ExceptionHandler%20Annotation
             UsernameNotFoundException.class,
             BadCredentialsException.class
@@ -29,6 +30,7 @@ public class GlobalException {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
     }
 
+    // global error handler in a spring rest api
     @ExceptionHandler(MethodArgumentNotValidException.class) // https://www.baeldung.com/global-error-handler-in-a-spring-rest-api#1-handling-the-exceptions
     public ResponseEntity<RestResponse<Object>> validationError(MethodArgumentNotValidException ex) {
         BindingResult result = ex.getBindingResult();
