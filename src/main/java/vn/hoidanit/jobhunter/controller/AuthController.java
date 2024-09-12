@@ -41,6 +41,7 @@ public class AuthController {
 
         ResLoginDTO res = new ResLoginDTO();
         res.setAccessToken(access_token);
+
         return ResponseEntity.ok().body(res);
     }
 }
