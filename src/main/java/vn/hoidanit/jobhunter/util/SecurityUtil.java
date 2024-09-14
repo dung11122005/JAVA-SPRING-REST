@@ -55,7 +55,7 @@ public class SecurityUtil {
      *
      * @return the login of the current user.
      */
-    public static Optional<String> getCurrentUserLogin() {
+    public static Optional<String> getCurrentUserLogin() { //https://gitlab.com/public-starter-projects1/000-java/02-java-spring-restful/02-java-jhipster-with-filter/-/blob/master/src/main/java/com/mycompany/myapp/security/SecurityUtils.java?ref_type=heads
         SecurityContext securityContext = SecurityContextHolder.getContext();
         return Optional.ofNullable(extractPrincipal(securityContext.getAuthentication()));
     }
