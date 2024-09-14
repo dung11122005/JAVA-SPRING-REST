@@ -33,7 +33,7 @@ public class FormatRestResponse implements ResponseBodyAdvice<Object> {
         RestResponse<Object> res = new RestResponse<Object>();
         res.setStatusCode(status);
 
-        if (body instanceof String) {
+        if (body instanceof String) {// https://gitlab.com/public-starter-projects1/000-java/02-java-spring-restful/04-java-spring-jobhunter-final-project/-/blob/7b00c44935ec6feebe470ce3aaff69c059739e9c/src/main/java/vn/hoidanit/jobhunter/util/FormatRestResponse.java#L36
             return body;
         }
 
