@@ -1,4 +1,4 @@
-package vn.hoidanit.jobhunter.domain.dto;
+package vn.hoidanit.jobhunter.domain.response;
 
 import vn.hoidanit.jobhunter.util.constant.GenderEnum;
 import java.time.Instant;
