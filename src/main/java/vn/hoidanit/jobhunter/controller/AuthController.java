@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import vn.hoidanit.jobhunter.domain.User;
-import vn.hoidanit.jobhunter.domain.dto.LoginDTO;
+import vn.hoidanit.jobhunter.domain.dto.ReqLoginDTO;
 import vn.hoidanit.jobhunter.domain.dto.ResLoginDTO;
 import vn.hoidanit.jobhunter.service.UserService;
 import vn.hoidanit.jobhunter.util.SecurityUtil;
@@ -47,7 +47,7 @@ public class AuthController {
 
         // how do i customize default error message from spring valid validation
         @PostMapping("/auth/login") // https://gist.github.com/slmanju/eb0a38b38bffd7e341dd9ee94f92a994#file-logincontroller-java
-        public ResponseEntity<ResLoginDTO> login(@Valid @RequestBody LoginDTO loginDto) {// https://stackoverflow.com/q/33663801
+        public ResponseEntity<ResLoginDTO> login(@Valid @RequestBody ReqLoginDTO loginDto) {// https://stackoverflow.com/q/33663801
                 // Nạp input gồm username/password vào Security
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                                 loginDto.getUsername(), loginDto.getPassword());
