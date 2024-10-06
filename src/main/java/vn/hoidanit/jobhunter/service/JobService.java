@@ -148,6 +148,7 @@ public class JobService {
     }
 
     public ResultPaginationDTO fetchAll(Specification<Job> spec, Pageable pageable) {
+
         Page<Job> pageJob = this.jobRepository.findAll(spec, pageable);
 
         ResultPaginationDTO rs = new ResultPaginationDTO();
@@ -164,5 +165,6 @@ public class JobService {
         rs.setResult(pageJob.getContent());
 
         return rs;
+
     }
 }
