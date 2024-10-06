@@ -179,7 +179,7 @@ public class AuthController {
                                 .body(res);
         }
 
-        @GetMapping("/auth/logout")
+        @PostMapping("/auth/logout")
         @ApiMessage("Logout User")
         public ResponseEntity<ResLoginDTO> logout() throws IdInvalidException {
                 String email = securityUtil.getCurrentUserLogin().isPresent() ? securityUtil.getCurrentUserLogin().get()
