@@ -18,6 +18,17 @@ import vn.hoidanit.jobhunter.domain.response.RestResponse;
 
 @RestControllerAdvice
 public class GlobalException {
+
+    // handle all exception
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<RestResponse<Object>> handleAllException(Exception ex) {
+        RestResponse<Object> res = new RestResponse<Object>();
+        res.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        res.setMessage(ex.getMessage());
+        res.setError("Internal Server Error");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(res);
+    }
+
     // exception handling in spring boot rest api
     @ExceptionHandler(value = { // https://springframework.guru/exception-handling-in-spring-boot-rest-api/#:~:text=Approach%202%3A%20Spring%20%40ExceptionHandler%20Annotation
             UsernameNotFoundException.class,
