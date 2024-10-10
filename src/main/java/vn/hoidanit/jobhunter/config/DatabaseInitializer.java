@@ -64,6 +64,7 @@ public class DatabaseInitializer implements CommandLineRunner {
             arr.add(new Permission("Delete a resume", "/api/v1/resumes/{id}", "DELETE", "RESUMES"));
             arr.add(new Permission("Get a resume by id", "/api/v1/resumes/{id}", "GET", "RESUMES"));
             arr.add(new Permission("Get resumes with pagination", "/api/v1/resumes", "GET", "RESUMES"));
+            arr.add(new Permission("Get list resumes by user", "/api/v1/resumes/by-user", "POST", "RESUMES"));
 
             arr.add(new Permission("Create a role", "/api/v1/roles", "POST", "ROLES"));
             arr.add(new Permission("Update a role", "/api/v1/roles", "PUT", "ROLES"));
@@ -82,6 +83,8 @@ public class DatabaseInitializer implements CommandLineRunner {
             arr.add(new Permission("Delete a subscriber", "/api/v1/subscribers/{id}", "DELETE", "SUBSCRIBERS"));
             arr.add(new Permission("Get a subscriber by id", "/api/v1/subscribers/{id}", "GET", "SUBSCRIBERS"));
             arr.add(new Permission("Get subscribers with pagination", "/api/v1/subscribers", "GET", "SUBSCRIBERS"));
+            arr.add(new Permission("Get subscriber's skill pagination", "/api/v1/subscribers/skills", "POST",
+                    "SUBSCRIBERS"));
 
             arr.add(new Permission("Download a file", "/api/v1/files", "POST", "FILES"));
             arr.add(new Permission("Upload a file", "/api/v1/files", "GET", "FILES"));
