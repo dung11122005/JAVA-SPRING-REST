@@ -92,15 +92,15 @@ public class SubscriberService {
                     List<Job> listJobs = this.jobRepository.findBySkillsIn(listSkills);
                     if (listJobs != null && listJobs.size() > 0) {
 
-                        // List<ResEmailJob> arr = listJobs.stream().map(
-                        // job -> this.convertJobToSendEmail(job)).collect(Collectors.toList());
+                        List<ResEmailJob> arr = listJobs.stream().map(
+                                job -> this.convertJobToSendEmail(job)).collect(Collectors.toList());
 
                         this.emailService.sendEmailFromTemplateSync(
                                 sub.getEmail(),
                                 "Cơ hội việc làm hot đang chờ đón bạn, khám phá ngay",
                                 "job",
                                 sub.getName(),
-                                listJobs);
+                                arr);
                     }
                 }
             }
