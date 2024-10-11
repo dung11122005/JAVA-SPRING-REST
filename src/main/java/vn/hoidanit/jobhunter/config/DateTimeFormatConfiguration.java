@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Configure the converters to use the ISO format for dates by default.
  */
 @Configuration
-public class DateTimeFormatConfiguration implements WebMvcConfigurer {
+public class DateTimeFormatConfiguration implements WebMvcConfigurer {// https://stackoverflow.com/a/51195822
 
     @Override
     public void addFormatters(FormatterRegistry registry) {

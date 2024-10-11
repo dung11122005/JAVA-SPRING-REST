@@ -16,7 +16,7 @@ import vn.hoidanit.jobhunter.service.UserService;
 import vn.hoidanit.jobhunter.util.SecurityUtil;
 import vn.hoidanit.jobhunter.util.error.PermissionException;
 
-public class PermissionInterceptor implements HandlerInterceptor {
+public class PermissionInterceptor implements HandlerInterceptor {// https://stackoverflow.com/a/42113069
 
     @Autowired
     UserService userService;
