@@ -14,7 +14,7 @@ import vn.hoidanit.jobhunter.repository.UserRepository;
 import vn.hoidanit.jobhunter.util.constant.GenderEnum;
 
 @Service
-public class DatabaseInitializer implements CommandLineRunner {
+public class DatabaseInitializer implements CommandLineRunner {// https://stackoverflow.com/questions/27644890/spring-boot-commandlinerunner-exception-handling
 
     private final PermissionRepository permissionRepository;
     private final RoleRepository roleRepository;
