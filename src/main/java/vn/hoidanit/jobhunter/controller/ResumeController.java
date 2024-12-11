@@ -3,6 +3,7 @@ package vn.hoidanit.jobhunter.controller;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
@@ -116,13 +117,19 @@ public class ResumeController {
                 : "";
         User currentUser = this.userService.handleGetUserByUsername(email);
         if (currentUser != null) {
+            // Kiểm tra nếu user là admin
+            boolean isAdmin = currentUser.getRole().getId() == 1;
             Company userCompany = currentUser.getCompany();
-            if (userCompany != null) {
-                List<Job> companyJobs = userCompany.getJobs();
-                if (companyJobs != null && companyJobs.size() > 0) {
-                    arrJobIds = companyJobs.stream().map(x -> x.getId())
-                            .collect(Collectors.toList());
+            if(!isAdmin){
+                if (userCompany != null ) {
+                    List<Job> companyJobs = userCompany.getJobs();
+                    if (companyJobs != null && companyJobs.size() > 0) {
+                        arrJobIds = companyJobs.stream().map(x -> x.getId())
+                                .collect(Collectors.toList());
+                    }
                 }
+            }else{
+                return ResponseEntity.ok().body(this.resumeService.fetchAllResume(spec, pageable));
             }
         }
 
