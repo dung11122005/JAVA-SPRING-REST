@@ -106,68 +106,68 @@ Fanpage “Hoàng Tấn Dũng” : https://www.facebook.com/cotem.khong.90?local
 
 ## ![Icon](https://img.icons8.com/?size=30&id=9YgKo9PXNHu4&format=png&color=000000) Ảnh chụp dự án
 
-### 1. Home page
+### 1. `Home page`
 
 ![Home page](https://github.com/dung11122005/image_github/blob/master/jubhunter/homepage1.png)
 ![Home page](https://github.com/dung11122005/image_github/blob/master/jubhunter/homepage2.png)
 
-### 2. Trang công ty
+### 2. Trang `công ty`
 
 ![Trang công ty](https://github.com/dung11122005/image_github/blob/master/jubhunter/page_company.png)
 
-### 3. Trang công việc
+### 3. Trang `công việc`
 
 ![Trang công việc](https://github.com/dung11122005/image_github/blob/master/jubhunter/page_job.png)
 
-### 4. Trang chi tiết công ty
+### 4. Trang `chi tiết công ty`
 
 ![Trang chi tiết công ty](https://github.com/dung11122005/image_github/blob/master/jubhunter/detail_company.png)
 
-### 5. Trang chi tiết công việc
+### 5. Trang `chi tiết công việc`
 
 ![Trang chi tiết công ty](https://github.com/dung11122005/image_github/blob/master/jubhunter/detail_job.png)
 
-### 6. Search theo 1 hoặc nhiều tiêu chí
+### 6. `Search` theo 1 hoặc nhiều `tiêu chí`
 
 ![Search](https://github.com/dung11122005/image_github/blob/master/jubhunter/search.png)
 
-### 7. JSON Web Token
+### 7. `JSON Web Token`
 
 ![Trang chi tiết công ty](https://github.com/dung11122005/image_github/blob/master/jubhunter/access_token.png)
 
-### 8. Xem công ty đã gửi CV
+### 8. Xem `công ty đã gửi CV`
 
 ![Xem công ty đã gửi CV](https://github.com/dung11122005/image_github/blob/master/jubhunter/xem_company_gui_CV.png)
 
-### 9. Xem CV
+### 9. `Xem CV`
 
 ![Xem CV](https://github.com/dung11122005/image_github/blob/master/jubhunter/xem_cv.png)
 
-### 10. Gửi email
+### 10. `Gửi email`
 
 ![Gửi email](https://github.com/dung11122005/image_github/blob/master/jubhunter/send_email.png)
 
-### 11. Upload file
+### 11. `Upload file`
 
 ![Upload file](https://github.com/dung11122005/image_github/blob/master/jubhunter/upload_file.png)
 
-### 12. Trang admin
+### 12. Trang `admin`
 
 ![Trang admin](https://github.com/dung11122005/image_github/blob/master/jubhunter/adminpage.png)
 
-### 13. Trang Hr
+### 13. Trang `Hr`
 
 ![Trang Hr](https://github.com/dung11122005/image_github/blob/master/jubhunter/page_hr.png)
 
-### 14. Phân quyền theo role( admin CRUD các role và thêm vào mỗi role các permission khác nhau để phân quyền)
+### 14. `Phân quyền` theo role( `admin CRUD các role và thêm vào mỗi role các permission khác nhau để phân quyền` )
 
 ![Phân quyền theo role](https://github.com/dung11122005/image_github/blob/master/jubhunter/phan_quyen.png)
 
-### 15. Permission
+### 15. `Permission`
 
 ![Permission](https://github.com/dung11122005/image_github/blob/master/jubhunter/permission.png)
 
-### 16. Trang login và đăng kí
+### 16. Trang `login` và `đăng kí`
 
 ![Trang login](https://github.com/dung11122005/image_github/blob/master/jubhunter/login.png)
 ![Trang login](https://github.com/dung11122005/image_github/blob/master/jubhunter/dang_ki.png)
