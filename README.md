@@ -9,7 +9,7 @@ Youtube “Hoàng Tấn Dũng” : https://www.youtube.com/@crushoicaucutevai746
 Fanpage “Hoàng Tấn Dũng” : https://www.facebook.com/cotem.khong.90?locale=vi_VN
 
 
-## ![Icon](https://img.icons8.com/?size=25&id=43259&format=png&color=000000) Công nghệ sử dụng
+## ![Icon](https://img.icons8.com/?size=25&id=43259&format=png&color=000000) Công nghệ sử dụng và tổng quan dự án
 
 - **Java Spring Boot**: Framework mạnh mẽ để xây dựng backend.
 
