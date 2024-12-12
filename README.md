@@ -159,7 +159,7 @@ Fanpage “Hoàng Tấn Dũng” : https://www.facebook.com/cotem.khong.90?local
 
 ![Trang Hr](https://github.com/dung11122005/image_github/blob/master/jubhunter/page_hr.png)
 
-### 14. `Phân quyền` theo role( `admin CRUD các role và thêm vào mỗi role các permission khác nhau để phân quyền` )
+### 14. `Phân quyền` theo role( **admin CRUD các role và thêm vào mỗi role các permission khác nhau để phân quyền** )
 
 ![Phân quyền theo role](https://github.com/dung11122005/image_github/blob/master/jubhunter/phan_quyen.png)
 
