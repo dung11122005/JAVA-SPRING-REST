@@ -92,7 +92,7 @@ Fanpage “Hoàng Tấn Dũng” : https://www.facebook.com/cotem.khong.90?local
 
 3. **Chạy ứng dụng**:
 
-   - Build ứng dụng bằng Maven
+   - Build ứng dụng bằng `Gradle`
 
 4. **Truy cập ứng dụng**:
 
