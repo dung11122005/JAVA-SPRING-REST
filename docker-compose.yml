@@ -1,0 +1,59 @@
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: jobhunter-postgres
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - jobhunter-network
+    healthcheck:
+      # ĐÃ SỬA: Sử dụng trực tiếp biến môi trường để check, đảm bảo DB nào, User nào cũng pass
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  jobhunter-app:
+    build: .
+    container_name: jobhunter-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      # ĐÃ SỬA: Chuyển toàn bộ về cú pháp Object nhất quán, chuẩn chỉnh, không lo thiếu dấu "="
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      B2_ACCESS_KEY_ID: ${B2_ACCESS_KEY_ID}
+      B2_SECRET_ACCESS_KEY: ${B2_SECRET_ACCESS_KEY}
+      B2_S3_REGION: ${B2_S3_REGION}
+      B2_S3_BUCKET_NAME: ${B2_S3_BUCKET_NAME}
+      B2_S3_ENDPOINT: ${B2_S3_ENDPOINT}
+      B2_CLOUDFLARE_DOMAIN: ${B2_CLOUDFLARE_DOMAIN}
+      B2_CLOUDFLARE_SECRET_KEY: ${B2_CLOUDFLARE_SECRET_KEY}
+      JWT_SECRET: ${JWT_SECRET}
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+    networks:
+      - jobhunter-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+
+volumes:
+  pg_data:
+
+networks:
+  jobhunter-network:

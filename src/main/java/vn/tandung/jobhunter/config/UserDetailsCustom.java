@@ -1,0 +1,39 @@
+package vn.tandung.jobhunter.config;
+
+import java.util.Collections;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+
+import vn.tandung.jobhunter.service.UserService;
+
+@Component("userDetailsService")
+public class UserDetailsCustom implements UserDetailsService {
+
+    private final UserService userService;
+
+    public UserDetailsCustom(UserService userService) {
+        this.userService = userService;
+    }
+
+    // username parameter is empty in loaduserbyusernamestring username spring boot
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {// https://stackoverflow.com/q/43978548
+        // TODO Auto-generated method stub
+
+        vn.tandung.jobhunter.domain.User user = this.userService.handleGetUserByUsername(username);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("Username/password không hợp lệ");
+        }
+
+        return new User(
+                user.getEmail(),
+                user.getPassword(),
+                Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
+    }
+
+}
